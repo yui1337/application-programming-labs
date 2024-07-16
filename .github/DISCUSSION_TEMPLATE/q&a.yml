@@ -29,7 +29,7 @@ body:
   - type: textarea
     id: details
     attributes:
-      label: Описание проблемы:
+      label: Описание проблемы
       description: | 
         Подробно опиши проблему, с которой ты столкнулся при выполнении лабораторной
       placeholder: |
