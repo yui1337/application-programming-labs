@@ -23,8 +23,8 @@ body:
         - 2 лабораторной работе
         - 3 лабораторной работе
         - 4 лабораторной работе
-      validations:
-        required: true
+    validations:
+      required: true
       
   - type: textarea
     id: details
@@ -34,5 +34,5 @@ body:
         Подробно опиши проблему, с которой ты столкнулся при выполнении лабораторной
       placeholder: |
         Также было бы крайне полезно привести помимо текстового описания проблемы скриншоты и фрагменты кода
-      validations:
-        required: true
+    validations:
+      required: true
