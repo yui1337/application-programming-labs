@@ -23,8 +23,8 @@ body:
         - 2 лабораторной работе
         - 3 лабораторной работе
         - 4 лабораторной работе
-    validations:
-      required: true
+      validations:
+        required: true
       
   - type: textarea
     id: details
