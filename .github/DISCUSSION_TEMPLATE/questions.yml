@@ -1,6 +1,6 @@
 labels: [q&a]
 body:
-  - type: textarea
+  - type: input
     id: fio
     attributes:
       label: Привет, меня зовут
