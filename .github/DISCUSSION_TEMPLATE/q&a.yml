@@ -35,4 +35,4 @@ body:
       placeholder: |
         Также было бы крайне полезно привести помимо текстового описания проблемы скриншоты и фрагменты кода
       validations:
-      required: true
+        required: true
