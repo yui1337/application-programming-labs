@@ -1,10 +1,11 @@
 # Прикладное программирование  
 
 ## Состав лабораторных работ:  
-[Лабораторная 1]() - ТВА;  
-[Лабораторная 2]() - ТВА;  
-[Лабораторная 3]() - ТВА;  
-[Лабораторная 4]() - ТВА;  
+[Лабораторная 1](https://github.com/itsecd/application-programming-labs/blob/main/lab1.md) - Регулярные выражения;  
+[Лабораторная 2](https://github.com/itsecd/application-programming-labs/blob/main/lab2.md) - Web Scraping;  
+[Лабораторная 3](https://github.com/itsecd/application-programming-labs/blob/main/lab3.md) - Работа с изображениями;  
+[Лабораторная 4](https://github.com/itsecd/application-programming-labs/blob/main/lab4.md) - Анализ и визуализация данных;  
+[Лабораторная 5](https://github.com/itsecd/application-programming-labs/blob/main/lab5.md) - GUI;  
 
 :collision: **Внимательно прочитайте [правила работы с кодом](https://github.com/itsecd/application-programming-labs/discussions/3) перед тем как приступать к выполнению заданий** :collision:
 
