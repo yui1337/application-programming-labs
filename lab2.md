@@ -117,10 +117,11 @@ google_crawler.crawl(keyword='cat', max_num=100)
 - `max_num` - максимальное количество изображений для загрузки.
 
 ## Полезные ссылки
-csv
-итераторы
-icrawler
-tqdm
+
+- [csv (doc)](https://docs.python.org/3/library/csv.html)
+- [создание итераторов](https://www.pythonforbeginners.com/basics/how-to-create-an-iterator-in-python)
+- [icrawler (doc)](https://icrawler.readthedocs.io/en/stable/)
+
 
 # Задание
 ## Общее задание
