@@ -1,6 +1,7 @@
 import argparse
-import re
 import datetime
+import re
+
 
 
 def get_file_name() -> str:
