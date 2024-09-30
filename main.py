@@ -2,6 +2,7 @@ import argparse
 import re
 import datetime
 
+
 def get_file_name() -> str:
     """
     Считывает название файла с БД из командной строки
@@ -48,7 +49,8 @@ def count_people(bd_list: list) -> int:
             count += 1
     return count
 
-def main():
+
+def main() -> None:
     filename = get_file_name()
     data = read_file(filename)
     birthdays_list = get_birthdays(data)
@@ -58,6 +60,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
