@@ -14,12 +14,9 @@ def download_images(keyword: str, number: int, imgdir: str) -> None:
         os.mkdir(imgdir)
     for filename in os.listdir(imgdir):
         os.remove(os.path.join(imgdir, filename))
-    try:
-        my_crawler = BingImageCrawler(
-        storage={"root_dir": imgdir, "backend": "FileSystem"},
-        feeder_threads=1,
-        parser_threads=2,
-        downloader_threads=4)
-    except Exception as e:
-        print(f"Wrong path to the image folder: {e} ")
+    my_crawler = BingImageCrawler(
+    storage={"root_dir": imgdir, "backend": "FileSystem"},
+    feeder_threads=1,
+    parser_threads=2,
+    downloader_threads=4)
     my_crawler.crawl(keyword=keyword, max_num=number)

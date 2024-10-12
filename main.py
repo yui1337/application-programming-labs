@@ -1,12 +1,11 @@
 import argparse
-import os
 
 from downloader import download_images
 from imgiterator import ImageIterator
 from mk_annotation import create_annotation
 
 
-def get_args() -> argparse.Namespace:
+def get_args() -> tuple[str, int, str, str]:
     """
     Reads arguments from terminal
     :return: Arguments
@@ -18,18 +17,18 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("-d", "--imgdir", type=str, help="Path to the folder, where you want to save images")
     parser.add_argument("-f", "--annotation_file", type=str, help="Path to the annotation file")
     arguments = parser.parse_args()
-    return arguments
+    return arguments.keyword, arguments.number, arguments.imgdir, arguments.annotation_file
 
 
 def main() -> None:
-    args = get_args()
+    keyword, number, imgdir, annotation_file = get_args()
     try:
-        download_images(args.keyword, args.number, args.imgdir)
-        create_annotation(args.imgdir,args.annotation_file)
-        my_iterator = ImageIterator(args.annotation_file)
+        download_images(keyword, number, imgdir)
+        create_annotation(imgdir,annotation_file)
+        my_iterator = ImageIterator(annotation_file)
+        for item in my_iterator:
+            print(item)
     except Exception as e:
         print(f"Something went wrong: {e} ")
-    for item in my_iterator:
-        print(item)
 if __name__ == "__main__":
     main()
