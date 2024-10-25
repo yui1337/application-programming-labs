@@ -30,5 +30,6 @@ def main():
     show_two_images(img,inv_img)
     plt.show()
 
+
 if __name__ == "__main__":
     main()
