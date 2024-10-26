@@ -1,8 +1,8 @@
+import os
+
 import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
-
-import os
 
 
 def get_image(image_path: str) -> np.ndarray:
@@ -25,24 +25,33 @@ def get_image_dimensions(img: np.ndarray) -> str:
     result = f"Image sizes (width, height) are: {width} x {height} px"
     return result
 
-def make_histogram(img: np.ndarray) -> None:
+def make_histogram(img: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
-    Creates histogram of given image and draws it
+    Creates RGB histogram of image given in from of numpy array
     :param img: Image in form of numpy array
+    :return: Red, blue and green histograms
     """
-    channels = cv.split(img)
-    colors = ["r", "g", "b"]
+    r_hist = cv.calcHist([img], [0], None, [256], [0, 256])
+    g_hist = cv.calcHist([img], [1], None, [256], [0, 256])
+    b_hist = cv.calcHist([img], [2], None, [256], [0, 256])
+    return r_hist, b_hist, g_hist
 
+def draw_histogram(r_hist: np.ndarray, g_hist: np.ndarray, b_hist: np.ndarray) -> None:
+    """
+    Draws RGB histogram
+    :param r_hist: Red channel of image
+    :param g_hist: Red channel of image
+    :param b_hist: Red channel of image
+    """
     plt.figure()
     plt.title("Histogram of original image")
     plt.xlabel("Brightness")
     plt.ylabel("Number of Pixels")
+    plt.plot(r_hist, color="red")
+    plt.plot(g_hist, color="green")
+    plt.plot(b_hist, color="blue")
+    plt.xlim([0, 256])
 
-    for (channel, color) in zip(channels, colors):
-        # create a histogram for the current channel and plot it
-        histogram = cv.calcHist([channel], [0], None, [256], [0, 256])
-        plt.plot(histogram, color=color)
-        plt.xlim([0, 256])
 
 def make_inverted_image(img: np.ndarray) -> np.ndarray:
     """
@@ -70,9 +79,9 @@ def show_two_images(img: np.ndarray, inv_img: np.ndarray) -> None:
     plt.title("Inverted image")
     plt.axis('off')
 
-def save_inverted_image(save_dir: str, img: np.ndarray, filename: str) -> None:
+def save_image(save_dir: str, img: np.ndarray, filename: str) -> None:
     """
-    Saves image with inverted colors as jpeg file
+    Saves image as jpeg file
     :param save_dir: Directory to save image
     :param img: Image in form of numpy array
     :param filename: Name of saved image without extension
