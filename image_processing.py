@@ -79,18 +79,13 @@ def show_two_images(img: np.ndarray, inv_img: np.ndarray) -> None:
     plt.title("Inverted image")
     plt.axis('off')
 
-def save_image(save_dir: str, img: np.ndarray, filename: str) -> None:
+def save_image(save_dir: str, img: np.ndarray) -> None:
     """
     Saves image as jpeg file
-    :param save_dir: Directory to save image
+    :param save_dir: Path to the directory and file name with certain to save image as
     :param img: Image in form of numpy array
-    :param filename: Name of saved image without extension
     :return:
     """
-    if not (os.path.isdir(save_dir)):
-        os.mkdir(save_dir)
-    filename = filename + ".jpg"
-    save_dir = os.path.join(save_dir, filename)
     cv.imwrite(save_dir, img)
 
 
