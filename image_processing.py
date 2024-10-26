@@ -52,7 +52,6 @@ def draw_histogram(r_hist: np.ndarray, g_hist: np.ndarray, b_hist: np.ndarray) -
     plt.plot(b_hist, color="blue")
     plt.xlim([0, 256])
 
-
 def make_inverted_image(img: np.ndarray) -> np.ndarray:
     """
     Inverts colors of given image

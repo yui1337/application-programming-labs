@@ -2,7 +2,7 @@ import argparse
 
 from image_processing import *
 
-def get_args() -> tuple[str, str, str]:
+def get_args() -> tuple[str, str]:
     """
     Reads arguments from terminal
     :return: Arguments
@@ -11,8 +11,7 @@ def get_args() -> tuple[str, str, str]:
     parser.add_argument("-i", "--image_path", type=str, help="Path to the image you'd like to invert")
     parser.add_argument("-s", "--save_dir", type=str, help="Directory you'd like to save inverted image")
     arguments = parser.parse_args()
-    return arguments.image_path, arguments.save_dir, arguments.new_filename
-
+    return arguments.image_path, arguments.save_dir
 
 def main():
     img_path, save_dir= get_args()
