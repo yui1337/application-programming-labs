@@ -21,9 +21,10 @@ def main():
     img = get_image(img_path)
     print(get_image_dimensions(img))
 
-    make_histogram(img)
+    r_hist, g_hist, b_hist = make_histogram(img)
+    draw_histogram(r_hist, g_hist, b_hist)
     inv_img = make_inverted_image(img)
-    save_inverted_image(save_dir, inv_img, new_filename)
+    save_image(save_dir, inv_img, new_filename)
     show_two_images(img,inv_img)
     plt.show()
 
