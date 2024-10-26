@@ -1,5 +1,3 @@
-import os
-
 import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
@@ -15,6 +13,7 @@ def get_image(image_path: str) -> np.ndarray:
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     return img
 
+
 def get_image_dimensions(img: np.ndarray) -> str:
     """
     Returns image dimensions
@@ -24,6 +23,7 @@ def get_image_dimensions(img: np.ndarray) -> str:
     width, height = img.shape[1], img.shape[0]
     result = f"Image sizes (width, height) are: {width} x {height} px"
     return result
+
 
 def make_histogram(img: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
@@ -35,6 +35,7 @@ def make_histogram(img: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]
     g_hist = cv.calcHist([img], [1], None, [256], [0, 256])
     b_hist = cv.calcHist([img], [2], None, [256], [0, 256])
     return r_hist, b_hist, g_hist
+
 
 def draw_histogram(r_hist: np.ndarray, g_hist: np.ndarray, b_hist: np.ndarray) -> None:
     """
@@ -52,6 +53,7 @@ def draw_histogram(r_hist: np.ndarray, g_hist: np.ndarray, b_hist: np.ndarray) -
     plt.plot(b_hist, color="blue")
     plt.xlim([0, 256])
 
+
 def make_inverted_image(img: np.ndarray) -> np.ndarray:
     """
     Inverts colors of given image
@@ -59,6 +61,7 @@ def make_inverted_image(img: np.ndarray) -> np.ndarray:
     :return: Image with inverted colors in form of numpy array
     """
     return cv.bitwise_not(img)
+
 
 def show_two_images(img: np.ndarray, inv_img: np.ndarray) -> None:
     """
@@ -78,6 +81,7 @@ def show_two_images(img: np.ndarray, inv_img: np.ndarray) -> None:
     plt.title("Inverted image")
     plt.axis('off')
 
+
 def save_image(save_dir: str, img: np.ndarray) -> None:
     """
     Saves image as jpeg file
@@ -86,5 +90,3 @@ def save_image(save_dir: str, img: np.ndarray) -> None:
     :return:
     """
     cv.imwrite(save_dir, img)
-
-
