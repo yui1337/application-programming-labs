@@ -23,15 +23,14 @@ def main():
     except Exception:
         print("Cant read image. Check your input.")
         exit()
-    if img is not (None):
+    if img is not None:
         r_hist, g_hist, b_hist = make_histogram(img)
         draw_histogram(r_hist, g_hist, b_hist)
         inv_img = make_inverted_image(img)
         try:
             save_image(save_dir, inv_img)
         except Exception as e:
-            print(
-                f"Something went wrong:{e}. Try to input path that ends with '.YYY', where YYY - needed format of images")
+            print(f"Something went wrong:{e}. Try to input path that ends with '.YYY', where YYY - format of images")
         show_two_images(img, inv_img)
         plt.show()
     else:
