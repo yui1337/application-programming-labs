@@ -28,3 +28,11 @@ def add_new_columns(df: pd.DataFrame) -> None:
     df["width"] = width
     df["height"] = height
     df["channels"] = channels
+
+def stat_info(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Collects statistical information about image sizes
+    :param df: pandas DataFrame
+    :return: statistical information in a form of DataFrame
+    """
+    return df.loc[:, ("width", "height", "channels")].describe()
