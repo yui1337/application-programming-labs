@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter
 import pandas as pd
 
 from img_operations import *
+
 
 def make_df(csv_path: str) -> pd.DataFrame:
     """
@@ -12,6 +14,7 @@ def make_df(csv_path: str) -> pd.DataFrame:
     df = pd.read_csv(csv_path, names=["rel_path", "abs_path"])
     df.drop(0, inplace=True)
     return df
+
 
 def add_new_columns(df: pd.DataFrame) -> None:
     """
@@ -29,6 +32,7 @@ def add_new_columns(df: pd.DataFrame) -> None:
     df["height"] = height
     df["channels"] = channels
 
+
 def stat_info(df: pd.DataFrame) -> pd.DataFrame:
     """
     Collects statistical information about image sizes
@@ -36,6 +40,7 @@ def stat_info(df: pd.DataFrame) -> pd.DataFrame:
     :return: statistical information in a form of DataFrame
     """
     return df.loc[:, ("width", "height", "channels")].describe()
+
 
 def filter_by_sizes(df: pd.DataFrame, max_width: int, max_height: int) -> pd.DataFrame:
     """
@@ -48,12 +53,14 @@ def filter_by_sizes(df: pd.DataFrame, max_width: int, max_height: int) -> pd.Dat
     condition = ((df["width"] <= max_width) & (df["height"] <= max_height))
     return df.loc[condition]
 
+
 def add_area(df: pd.DataFrame) -> None:
     """
     Adds column with area of image
     :param df: pandas DataFrame
     """
     df["area"] = df["width"] * df["height"]
+
 
 def sort_by_area(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -62,3 +69,15 @@ def sort_by_area(df: pd.DataFrame) -> pd.DataFrame:
     :return: sorted pandas DataFrame
     """
     return df.sort_values("area")
+
+
+def create_hist_by_area(df: pd.DataFrame) -> None:
+    """
+    Creates histogram of image area distribution
+    :param df: pandas DataFrame
+    """
+    df.hist(column="area", bins=len(df))
+    plt.title("Histogram by area")
+    plt.xlabel("Area")
+    plt.ylabel("Count")
+    plt.show()
