@@ -36,3 +36,14 @@ def stat_info(df: pd.DataFrame) -> pd.DataFrame:
     :return: statistical information in a form of DataFrame
     """
     return df.loc[:, ("width", "height", "channels")].describe()
+
+def filter_by_sizes(df: pd.DataFrame, max_width: int, max_height: int) -> pd.DataFrame:
+    """
+    Creates new DataFrame by filtering existing one
+    :param df: pandas DataFrame
+    :param max_width: max width of image
+    :param max_height: max height of image
+    :return: new pandas DataFrame, crated by filtering existing DataFrame
+    """
+    condition = ((df["width"] <= max_width) & (df["height"] <= max_height))
+    return df.loc[condition]
