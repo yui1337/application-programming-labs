@@ -47,3 +47,18 @@ def filter_by_sizes(df: pd.DataFrame, max_width: int, max_height: int) -> pd.Dat
     """
     condition = ((df["width"] <= max_width) & (df["height"] <= max_height))
     return df.loc[condition]
+
+def add_area(df: pd.DataFrame) -> None:
+    """
+    Adds column with area of image
+    :param df: pandas DataFrame
+    """
+    df["area"] = df["width"] * df["height"]
+
+def sort_by_area(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Sorts DataFrame by area (from smaller to larger)
+    :param df: pandas DataFrame
+    :return: sorted pandas DataFrame
+    """
+    return df.sort_values("area")
