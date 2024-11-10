@@ -16,6 +16,10 @@ def get_args() -> str:
     return arguments.csv
 
 
+MAX_WIDTH = 1000
+MAX_HEIGHT = 1000
+
+
 def main() -> None:
     csv_path = get_args()
     try:
@@ -28,7 +32,7 @@ def main() -> None:
         info = stat_info(df)
         print("Statistical information of DataFrame \n", info)
 
-        filtered = filter_by_sizes(df, 1000, 1000)
+        filtered = filter_by_sizes(df, MAX_WIDTH, MAX_HEIGHT)
         print("DataFrame filtered by max width, max_height \n", filtered)
 
         add_area(df)
