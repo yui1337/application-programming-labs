@@ -1,5 +1,4 @@
 import argparse
-import pandas as pd
 
 from pandas_operations import *
 

@@ -1,8 +1,6 @@
+import cv2 as cv
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FormatStrFormatter
 import pandas as pd
-
-from img_operations import *
 
 
 def make_df(csv_path: str) -> pd.DataFrame:
@@ -24,10 +22,10 @@ def add_new_columns(df: pd.DataFrame) -> None:
     """
     height, width, channels = [],[],[]
     for i in range (1, len(df)+1):
-        img = get_image(df.loc[i, "abs_path"])
-        width.append(get_image_dimensions(img)[0])
-        height.append(get_image_dimensions(img)[1])
-        channels.append(get_image_dimensions(img)[2])
+        img = cv.imread(df.loc[i, "abs_path"])
+        height.append(img.shape[0])
+        width.append(img.shape[1])
+        channels.append(img.shape[2])
     df["width"] = width
     df["height"] = height
     df["channels"] = channels
