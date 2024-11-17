@@ -1,8 +1,7 @@
 import os
 
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import QMainWindow, QApplication
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 
 from imgiterator import ImageIterator
 
@@ -19,7 +18,6 @@ class UiMainWindow(object):
         main_window.setStyleSheet("background-color: rgb(43, 45, 48);")
 
         self.container = QtWidgets.QWidget(main_window)
-
         self.container.setObjectName("container")
 
         self.image = QtWidgets.QLabel(self.container)
@@ -79,7 +77,7 @@ class UiMainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(main_window)
 
         self.btn_choose_csv.clicked.connect(self.load_csv)
-        self.btn_next_img.clicked.Adconnect(self.next_img)
+        self.btn_next_img.clicked.connect(self.next_img)
 
     def set_iterator(self) -> None:
         """
