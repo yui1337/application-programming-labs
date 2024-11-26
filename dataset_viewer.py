@@ -26,7 +26,7 @@ class UiMainWindow(object):
         self.image.setAlignment(QtCore.Qt.AlignCenter)
         self.image.setObjectName("image")
         self.image.setStyleSheet("color: rgb(111, 115, 122);\n"
-                                   "font: 18pt \"Roboto\";\n")
+                                 "font: 18pt \"Roboto\";\n")
 
         self.btns_col = QtWidgets.QWidget(self.container)
         self.btns_col.setGeometry(QtCore.QRect(10, 50, 240, 660))
