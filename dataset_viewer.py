@@ -79,6 +79,7 @@ class UiMainWindow(object):
         self.btn_choose_csv.clicked.connect(self.load_csv)
         self.btn_next_img.clicked.connect(self.next_img)
 
+
     def set_iterator(self) -> None:
         """
         Creates ImageIterator iterator
